@@ -7,33 +7,32 @@ public class AttackerSpawner : MonoBehaviour
 {
     [SerializeField] float min;
     [SerializeField] float max;
+    [SerializeField] Attacker attacker;
     bool spawn = true;
 
     void Start()
     {
-        
+        StartCoroutine(spawnCoroutine());        
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("update here !!");
-        while (spawn)
-        {
-            StartCoroutine(spawnCoroutine());
-            
-        }
+  
     }
 
     IEnumerator spawnCoroutine()
     {
-        spoawnAttacker();
-       
-        yield return new WaitForSeconds(UnityEngine.Random.Range(min, max));
+        while (spawn)
+        { 
+            yield return new WaitForSeconds(UnityEngine.Random.Range(min, max));
+            spoawnAttacker();
+        }
     }
+
 
     private void spoawnAttacker()
     {
-        Debug.Log("Attacker Spawned!!");
+        Instantiate(attacker, transform.position, Quaternion.identity);
     }
 }
