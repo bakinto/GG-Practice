@@ -5,11 +5,16 @@ using UnityEngine;
 public class ZucciniMove : MonoBehaviour
 {
     [SerializeField] float speed;
-//    public Rigidbody2D rb;
 
-    // Update is called once per frame
+
     void Update()
     {
         transform.Translate(Vector2.right * Time.deltaTime * speed);
+    }
+
+
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        Debug.Log(col.name + "hit");
     }
 }
