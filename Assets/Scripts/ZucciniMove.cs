@@ -17,7 +17,11 @@ public class ZucciniMove : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D col)
     {
         var health = col.GetComponent<Health>();
-        health.decreaseHealth(damage);
-        Debug.Log(col.GetComponent<Attacker>().health);
+        var attacker = col.GetComponent<Attacker>();
+        if(attacker && health)
+        {
+            health.decreaseHealth(damage);
+            Destroy(gameObject);
+        }
     }
 }
