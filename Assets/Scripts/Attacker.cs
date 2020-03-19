@@ -29,7 +29,7 @@ public class Attacker : MonoBehaviour
 
     public void decreaseHealth(float damageManount)
     {
-        this.health =- damageManount;
+        this.health -= damageManount;
     }
    
 

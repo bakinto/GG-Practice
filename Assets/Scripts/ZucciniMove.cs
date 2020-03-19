@@ -5,6 +5,7 @@ using UnityEngine;
 public class ZucciniMove : MonoBehaviour
 {
     [SerializeField] float speed;
+    [SerializeField] int damage = 10;
 
 
     void Update()
@@ -15,6 +16,8 @@ public class ZucciniMove : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        Debug.Log(col.name + "hit");
+        var health = col.GetComponent<Health>();
+        health.decreaseHealth(damage);
+        Debug.Log(col.GetComponent<Attacker>().health);
     }
 }
