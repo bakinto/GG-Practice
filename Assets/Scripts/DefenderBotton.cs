@@ -5,16 +5,8 @@ using UnityEngine;
 public class DefenderBotton : MonoBehaviour
 {
     // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [SerializeField] DefenderSet defenderPref;
     void OnMouseDown()
     {
         var bottons = FindObjectsOfType<DefenderBotton>();
@@ -23,5 +15,6 @@ public class DefenderBotton : MonoBehaviour
             botton.GetComponent<SpriteRenderer>().color = Color.gray;
         }
         GetComponent<SpriteRenderer>().color = new Color(255, 255, 255);
+        FindObjectOfType<DiffedersSpawner>().setSelectedDefender(defenderPref);
     }
 }

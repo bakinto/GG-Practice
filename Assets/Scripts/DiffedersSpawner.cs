@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class DiffedersSpawner : MonoBehaviour
 {
-    public GameObject diffender;
+    DefenderSet diffender;
 
     void Update()
     {
         getSquareClicked();
+    }
+    public void setSelectedDefender(DefenderSet selectedDefender)
+    {
+        diffender = selectedDefender;
     }
     void OnMouseDown()
     {
@@ -26,6 +30,6 @@ public class DiffedersSpawner : MonoBehaviour
 
     private void spawnDefender(Vector2 pos)
     {
-        GameObject defender = Instantiate(diffender, pos, Quaternion.identity) as GameObject;
+        DefenderSet defender = Instantiate(diffender, pos, Quaternion.identity) as DefenderSet;
     }
 }
