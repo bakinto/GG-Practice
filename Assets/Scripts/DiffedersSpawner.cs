@@ -14,9 +14,21 @@ public class DiffedersSpawner : MonoBehaviour
     {
         diffender = selectedDefender;
     }
+
+    private void attemptToPlaceDefenderAt(Vector2 gridPos)
+    {
+        StarsDisplay starDisplay = FindObjectOfType<StarsDisplay>();
+        int defenderCost = diffender.cost;
+        if (starDisplay.haveEnoughStars(defenderCost))
+        {
+            spawnDefender(gridPos);
+            starDisplay.spendingStarts(defenderCost);
+        }
+    }
+
     void OnMouseDown()
     {
-        spawnDefender(getSquareClicked());
+        attemptToPlaceDefenderAt(getSquareClicked());
     }
     private Vector2 getSquareClicked()
     {

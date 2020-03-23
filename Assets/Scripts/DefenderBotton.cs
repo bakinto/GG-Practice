@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class DefenderBotton : MonoBehaviour
 {
-    // Start is called before the first frame update
 
     [SerializeField] DefenderSet defenderPref;
     void OnMouseDown()
